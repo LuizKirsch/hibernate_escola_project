@@ -1,0 +1,73 @@
+package org.example.entidades;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "contato")
+public class Contato {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    public Contato(String descricao, String tipo) {
+        this.descricao = descricao;
+        this.tipo = tipo;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Contato() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Contato{" +
+                "id=" + id +
+                ", descricao='" + descricao + '\'' +
+                ", tipo='" + tipo + '\'' +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @Column(name = "descricao")
+    private String descricao;
+    @Column(name = "tipo")
+    private String tipo;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "aluno.id")
+    private Aluno aluno;
+
+
+
+}
