@@ -39,5 +39,8 @@ public class App
         entityManager.getTransaction().begin();
         entityManager.merge(aluno);
         entityManager.getTransaction().commit();
+
+//        tem que mudar para Array ao inves de ArrayList em Aluno , Contato e etc
+
     }
 }
