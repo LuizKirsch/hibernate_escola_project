@@ -42,6 +42,12 @@ public class Aluno {
 
     private ArrayList<Contato> contatos;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "aluno_turma",
+        joinColumns = @JoinColumn(name = "aluno_id"),
+        inverseJoinColumns = @JoinColumn(name = "turma_id"))
+    private ArrayList<Turma> turmas;
+
 
     public Aluno(int id, String nome, String numeroMatricula, String cpf, String endereco, LocalDate nascimento) {
         this.id = id;

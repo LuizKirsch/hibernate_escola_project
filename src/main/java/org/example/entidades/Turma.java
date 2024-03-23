@@ -2,6 +2,8 @@ package org.example.entidades;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+
 @Entity
 @Table(name = "turma")
 public class Turma {
@@ -11,6 +13,20 @@ public class Turma {
 
     @Column(name = "semestre")
     private String semestre;
+
+    public ArrayList<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "aluno_turma",
+        joinColumns = @JoinColumn(name = "turma_id"),
+        inverseJoinColumns = @JoinColumn(name = "aluno_id"))
+    private ArrayList<Aluno> alunos;
 
 //    @Column(name = "professor_id ")
 //    private int professor_id ;
@@ -39,4 +55,6 @@ public class Turma {
                 ", semestre='" + semestre + '\'' +
                 '}';
     }
+
+
 }
