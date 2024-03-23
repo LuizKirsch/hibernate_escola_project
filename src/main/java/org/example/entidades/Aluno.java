@@ -114,7 +114,7 @@ public class Aluno {
         this.endereco = endereco;
     }
 
-    public LocalDate getNascimento() {
+    public LocalDate getNascimento(LocalDate nascimento) {
         return nascimento;
     }
 
@@ -122,5 +122,14 @@ public class Aluno {
         this.nascimento = nascimento;
     }
 
+    public ArrayList<Turma> getTurmas() {
+        return turmas;
+    }
 
+    public void setTurmas(ArrayList<Turma> turmas) {
+        this.turmas = turmas;
+    }
+
+    public void setNascimento(int i, int i1, int i2) {
+    }
 }
